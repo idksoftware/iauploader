@@ -39,10 +39,13 @@ namespace Common
 			Error,
 			Unknown
 		};
+		SyncTool(const char* rootPath);
 		SyncTool();
 		virtual ~SyncTool() = default;
 
 		bool init(const char* user, const char* pw, const char* ip);
+		void setRootFolder(const char* rootPath) { m_rootPath = rootPath; };
+
 		bool tryRelogin();
 		SyncTool::Result processFile(const char* path, std::shared_ptr<VirtualFileSystem> vfs);
 		JobList& getJobList() { return m_list; };

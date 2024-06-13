@@ -32,6 +32,12 @@ namespace Common
         return true;
     }
 
+    SyncTool::SyncTool(const char* rootPath) : m_rootPath(rootPath)
+    {
+        m_ftpclient = std::make_shared<CFtpClient>();
+        m_remoteInfoCache = std::make_shared<RemoteInfoCache>(m_ftpclient);
+    }
+
     SyncTool::SyncTool()
     {
         m_ftpclient = std::make_shared<CFtpClient>();

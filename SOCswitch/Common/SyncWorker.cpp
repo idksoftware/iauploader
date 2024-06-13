@@ -55,6 +55,8 @@ namespace Common
 
 		for (auto folder : m_folders) 
 		{
+			syncTool.setRootFolder(folder.c_str());
+
 			TargetsList targetsList(syncTool);
 			logger.log(1234, AALTOLogNoticeType::STATUS, "Processing local files");
 			if (targetsList.process(folder.c_str()) == false) {
